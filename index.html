@@ -21,44 +21,54 @@
 
         h1 {
             font-family: 'Christmas ScriptC', cursive;
-            font-size: 36px;
+            font-size: 24px;
             margin: 0;
         }
 
         .menu-section {
-            padding: 20px;
+            padding: 24px;
         }
 
         .menu-list {
             list-style-type: none;
-            padding: 0;
+            padding: 10;
         }
 
         .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             border-bottom: 1px solid #ccc;
             padding: 10px 0;
         }
 
+        .menu-category {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
         .menu-item h3 {
             margin: 0;
-            font-size: 20px;
+            font-size: 18px;
+            font-style: italic;
             color: black;
+        }
+ .menu-item .price {
+            color: black;
+            float: right;
+margin: -20px 0;
         }
 
         .menu-item p {
             margin: 0;
+color: black;
+            float: right;
+      margin: -20px 10%;
         }
 
-        .menu-item .price {
-            color: black;
-        }
+       
 
         .menu-buttons {
             display: flex;
-            justify-content: center;
+            overflow-x: auto;
             margin-bottom: 20px;
         }
 
@@ -66,9 +76,10 @@
             background-color: #333;
             color: #fff;
             border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 8px 16px;
+            margin: 0 5px;
             cursor: pointer;
+            font-size: 14px;
         }
 
         .logo-button {
@@ -76,6 +87,11 @@
             border: none;
             cursor: pointer;
             color: white;
+        }
+
+        .sub-menu {
+            display: none;
+            padding-left: 20px;
         }
 
         footer {
@@ -97,65 +113,103 @@
 
     <div class="menu-section">
         <div class="menu-buttons">
-            <button onclick="showMenu('Алкогольні напої')">Алкогольні напої</button>
-            <button onclick="showMenu('Безалкогольні напої')">Безалкогольні напої</button>
-            <button onclick="showMenu('Вино')">Вино</button>
-            <button onclick="showMenu('Віскі')">Віскі</button>
-            <button onclick="showMenu('Ром')">Ром</button>
-            <button onclick="showMenu('Горілка')">Горілка</button>
-            <button onclick="showMenu('Пиво')">Пиво</button>
-            <button onclick="showMenu('Коньяк')">Коньяк</button>
+            <button onclick="toggleSubMenu('alcohol')">Алкогольні</button>
+            <button onclick="toggleSubMenu('shot')">Шоти</button>
+            <button onclick="toggleSubMenu('sauer')">Сауери</button>
+            <button onclick="toggleSubMenu('bear')">Пиво</button>
+            <button onclick="toggleSubMenu('vodka')">Горілка</button>
+            <button onclick="toggleSubMenu('cognac')">Коньяк</button>
+            <button onclick="toggleSubMenu('rom')">Ром</button>
+            <button onclick="toggleSubMenu('stoy')">Настоянки</button>
+            <button onclick="toggleSubMenu('vine')">Вина</button>
+           <button onclick="toggleSubMenu('nonalco')">Безалкогольні</button>
+           <button onclick="toggleSubMenu('tea')">Кава та Чай</button>
         </div>
         
         <ul class="menu-list">
             <!-- Алкогольні напої -->
             <li class="menu-item bar alcohol">
-                <h3>Віскі</h3>
-                <p>Грамовка: 50 г</p>
-                <span class="price">120 грн</span>
+                <h2>Алкогольні Коктейлі</h2>
+                <h3>Лонг-біч</h3>
+                <p> 500 мл</p>
+                <span class="price">185 грн</span>
             </li>
             <li class="menu-item bar alcohol">
-                <h3>Ром</h3>
-                <p>Грамовка: 50 г</p>
+                <h3>Лонг-айленд</h3>
+                <p> 500 мл</p>
+                <span class="price">185 грн</span>
+            </li>
+            <li class="menu-item bar alcohol">
+                <h3>Апероль-шприц</h3>
+                <p> 350 мл</p>
+                <span class="price">170 грн</span>
+                       </li>
+            <li class="menu-item bar alcohol">
+                <h3>"Порно зірка"</h3>
+                <p> 100/60 мл</p>
+                <span class="price">150 грн</span>
+            </li>
+           <li class="menu-item bar alcohol">
+                <h3>"Корона санрайз"</h3>
+                <p> 330 мл</p>
+                <span class="price">180 грн</span>
+            </li>
+           <li class="menu-item bar alcohol">
+                <h3>"Ілюзія"</h3>
+                <p> 200 мл</p>
+                <span class="price">135 грн</span>
+            </li>
+           <li class="menu-item bar alcohol">
+                <h3>"Пінк пунш"</h3>
+                <p> 200 мл</p>
+                <span class="price">120 грн</span>
+            </li>
+           <li class="menu-item bar alcohol">
+                <h3>"Россо гранато"</h3>
+                <p> 200 мл</p>
                 <span class="price">110 грн</span>
             </li>
             <!-- Безалкогольні напої -->
             <li class="menu-item bar non-alcohol">
-                <h3>Сік</h3>
-                <p>Грамовка: 200 г</p>
-                <span class="price">50 грн</span>
+                <h2>Шоти</h2>
+                <h3>Мінет</h3>
+                <p> 60 мл</p>
+                <span class="price">95 грн</span>
             </li>
             <li class="menu-item bar non-alcohol">
                 <h3>Вода</h3>
-                <p>Грамовка: 250 г</p>
+                <p> 250 г</p>
                 <span class="price">20 грн</span>
             </li>
             <!-- Вино -->
             <li class="menu-item bar wine">
+                <h2>Вино</h2>
                 <h3>Червоне вино</h3>
-                <p>Грамовка: 150 г</p>
+                <p> 150 г</p>
                 <span class="price">70 грн</span>
             </li>
             <li class="menu-item bar wine">
                 <h3>Біле вино</h3>
-                <p>Грамовка: 150 г</p>
+                <p> 150 г</p>
                 <span class="price">70 грн</span>
             </li>
             <!-- Віскі -->
             <li class="menu-item bar whiskey">
+                <h2>Віскі</h2>
                 <h3>Дорогоший віскі</h3>
-                <p>Грамовка: 50 г</p>
+                <p> 50 г</p>
                 <span class="price">200 грн</span>
             </li>
             <li class="menu-item bar whiskey">
                 <h3>Звичайний віскі</h3>
-                <p>Грамовка: 50 г</p>
+                <p> 50 г</p>
                 <span class="price">100 грн</span>
             </li>
             <!-- Ром -->
             <li class="menu-item bar rum">
+                <h3>Ром</h3>
                 <h3>Темний ром</h3>
-                <p>Грамовка: 50 г</p>
+                <p> 50 г</p>
                 <span class="price">90 грн</span>
             </li>
             <li class="menu-item bar rum">
@@ -165,8 +219,9 @@
             </li>
             <!-- Горілка -->
             <li class="menu-item bar vodka">
+                <h2>Горілка</h2>
                 <h3>Високогірна</h3>
-                <p>Грамовка: 50 г</p>
+                <p> 50 г</p>
                 <span class="price">40 грн</span>
             </li>
             <li class="menu-item bar vodka">
@@ -176,6 +231,7 @@
             </li>
             <!-- Пиво -->
             <li class="menu-item bar beer">
+                <h2>Пиво</h2>
                 <h3>Світле пиво</h3>
                 <p>Грамовка: 500 мл</p>
                 <span class="price">40 грн</span>
@@ -187,6 +243,7 @@
             </li>
             <!-- Коньяк -->
             <li class="menu-item bar cognac">
+                <h2>Коньяк</h2>
                 <h3>Дорогий коньяк</h3>
                 <p>Грамовка: 50 г</p>
                 <span class="price">150 грн</span>
@@ -204,27 +261,13 @@
     </footer>
 
     <script>
-        function showMenu(category) {
-            var menuItems = document.querySelectorAll('.menu-item');
+        function toggleSubMenu(category) {
+            var subMenu = document.querySelectorAll('.' + category);
 
-            for (var i = 0; i < menuItems.length; i++) {
-                var menuItem = menuItems[i];
-                if (category === 'Алкогольні напої' && menuItem.classList.contains('alcohol')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Безалкогольні напої' && menuItem.classList.contains('non-alcohol')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Вино' && menuItem.classList.contains('wine')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Віскі' && menuItem.classList.contains('whiskey')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Ром' && menuItem.classList.contains('rum')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Горілка' && menuItem.classList.contains('vodka')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Пиво' && menuItem.classList.contains('beer')) {
-                    menuItem.style.display = 'flex';
-                } else if (category === 'Коньяк' && menuItem.classList.contains('cognac')) {
-                    menuItem.style.display = 'flex';
+            for (var i = 0; i < subMenu.length; i++) {
+                var menuItem = subMenu[i];
+                if (menuItem.style.display === 'none' || menuItem.style.display === '') {
+                    menuItem.style.display = 'block';
                 } else {
                     menuItem.style.display = 'none';
                 }
@@ -237,4 +280,3 @@
     </script>
 </body>
 </html>
-
