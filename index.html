@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню ресторана CityBar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
+            color: #000;
         }
 
         header {
@@ -18,49 +19,63 @@
             padding: 10px;
         }
 
-        nav {
-            text-align: center;
-            background-color: #444;
-            padding: 5px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            margin: 0 10px;
+        h1 {
+            font-family: 'Christmas ScriptC', cursive;
+            font-size: 36px;
+            margin: 0;
         }
 
         .menu-section {
             padding: 20px;
         }
 
-        .menu-category {
-            margin-bottom: 30px;
-        }
-
-        .menu-category h3 {
-            font-size: 24px;
-            color: #ff6600;
-            margin-bottom: 10px;
+        .menu-list {
+            list-style-type: none;
+            padding: 0;
         }
 
         .menu-item {
-            margin-bottom: 20px;
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
         }
 
-        .menu-item h4 {
+        .menu-item h3 {
             margin: 0;
+            font-size: 20px;
+            color: black;
         }
 
         .menu-item p {
-            margin: 5px 0;
+            margin: 0;
         }
 
         .menu-item .price {
-            color: #ff6600;
+            color: black;
+        }
+
+        .menu-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-buttons button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .logo-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
         }
 
         footer {
@@ -70,56 +85,156 @@
             padding: 10px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Christmas+ScriptC&display=swap" rel="stylesheet">
+    <title>Меню ресторана CityBar</title>
 </head>
 <body>
     <header>
-        <h1>CityBar</h1>
+        <button class="logo-button" onclick="reloadPage()">
+            <h1>CityBar</h1>
+        </button>
     </header>
 
-    <nav>
-        <a href="#">Головна</a>
-        <a href="#">Меню</a>
-        <a href="#">Контакти</a>
-    </nav>
-
     <div class="menu-section">
-        <h2>Меню ресторана</h2>
-
-        <div class="menu-category">
-            <h3>Холодні закуски</h3>
-            <div class="menu-item">
-                <h4>Селедка під шубою</h4>
-                <p>Селедка, картопля, морква, яйця та майонез</p>
-                <span class="price">75 грн</span>
-            </div>
-            <div class="menu-item">
-                <h4>Олив'є</h4>
-                <p>Олив'є з вареною ковбасою та огірками</p>
-                <span class="price">85 грн</span>
-            </div>
+        <div class="menu-buttons">
+            <button onclick="showMenu('Алкогольні напої')">Алкогольні напої</button>
+            <button onclick="showMenu('Безалкогольні напої')">Безалкогольні напої</button>
+            <button onclick="showMenu('Вино')">Вино</button>
+            <button onclick="showMenu('Віскі')">Віскі</button>
+            <button onclick="showMenu('Ром')">Ром</button>
+            <button onclick="showMenu('Горілка')">Горілка</button>
+            <button onclick="showMenu('Пиво')">Пиво</button>
+            <button onclick="showMenu('Коньяк')">Коньяк</button>
         </div>
-
-        <div class="menu-category">
-            <h3>Салати</h3>
-            <div class="menu-item">
-                <h4>Салат "Цезар"</h4>
-                <p>Салат з куркою, сухариками та соусом</p>
-                <span class="price">110 грн</span>
-            </div>
-            <div class="menu-item">
-                <h4>Салат з авокадо</h4>
-                <p>Салат з авокадо, помідорами та міксом зелені</p>
-                <span class="price">95 грн</span>
-            </div>
-        </div>
-
-        <!-- Додайте інші відділи та страви тут -->
         
+        <ul class="menu-list">
+            <!-- Алкогольні напої -->
+            <li class="menu-item bar alcohol">
+                <h3>Віскі</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">120 грн</span>
+            </li>
+            <li class="menu-item bar alcohol">
+                <h3>Ром</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">110 грн</span>
+            </li>
+            <!-- Безалкогольні напої -->
+            <li class="menu-item bar non-alcohol">
+                <h3>Сік</h3>
+                <p>Грамовка: 200 г</p>
+                <span class="price">50 грн</span>
+            </li>
+            <li class="menu-item bar non-alcohol">
+                <h3>Вода</h3>
+                <p>Грамовка: 250 г</p>
+                <span class="price">20 грн</span>
+            </li>
+            <!-- Вино -->
+            <li class="menu-item bar wine">
+                <h3>Червоне вино</h3>
+                <p>Грамовка: 150 г</p>
+                <span class="price">70 грн</span>
+            </li>
+            <li class="menu-item bar wine">
+                <h3>Біле вино</h3>
+                <p>Грамовка: 150 г</p>
+                <span class="price">70 грн</span>
+            </li>
+            <!-- Віскі -->
+            <li class="menu-item bar whiskey">
+                <h3>Дорогоший віскі</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">200 грн</span>
+            </li>
+            <li class="menu-item bar whiskey">
+                <h3>Звичайний віскі</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">100 грн</span>
+            </li>
+            <!-- Ром -->
+            <li class="menu-item bar rum">
+                <h3>Темний ром</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">90 грн</span>
+            </li>
+            <li class="menu-item bar rum">
+                <h3>Білий ром</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">85 грн</span>
+            </li>
+            <!-- Горілка -->
+            <li class="menu-item bar vodka">
+                <h3>Високогірна</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">40 грн</span>
+            </li>
+            <li class="menu-item bar vodka">
+                <h3>Немирівська</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">35 грн</span>
+            </li>
+            <!-- Пиво -->
+            <li class="menu-item bar beer">
+                <h3>Світле пиво</h3>
+                <p>Грамовка: 500 мл</p>
+                <span class="price">40 грн</span>
+            </li>
+            <li class="menu-item bar beer">
+                <h3>Темне пиво</h3>
+                <p>Грамовка: 500 мл</p>
+                <span class="price">45 грн</span>
+            </li>
+            <!-- Коньяк -->
+            <li class="menu-item bar cognac">
+                <h3>Дорогий коньяк</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">150 грн</span>
+            </li>
+            <li class="menu-item bar cognac">
+                <h3>Звичайний коньяк</h3>
+                <p>Грамовка: 50 г</p>
+                <span class="price">90 грн</span>
+            </li>
+        </ul>
     </div>
 
     <footer>
         <p>&copy; 2023 CityBar. Усі права захищено.</p>
     </footer>
+
+    <script>
+        function showMenu(category) {
+            var menuItems = document.querySelectorAll('.menu-item');
+
+            for (var i = 0; i < menuItems.length; i++) {
+                var menuItem = menuItems[i];
+                if (category === 'Алкогольні напої' && menuItem.classList.contains('alcohol')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Безалкогольні напої' && menuItem.classList.contains('non-alcohol')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Вино' && menuItem.classList.contains('wine')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Віскі' && menuItem.classList.contains('whiskey')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Ром' && menuItem.classList.contains('rum')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Горілка' && menuItem.classList.contains('vodka')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Пиво' && menuItem.classList.contains('beer')) {
+                    menuItem.style.display = 'flex';
+                } else if (category === 'Коньяк' && menuItem.classList.contains('cognac')) {
+                    menuItem.style.display = 'flex';
+                } else {
+                    menuItem.style.display = 'none';
+                }
+            }
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
 </body>
 </html>
 
